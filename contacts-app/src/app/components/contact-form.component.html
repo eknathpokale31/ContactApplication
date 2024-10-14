@@ -5,7 +5,7 @@
         <div class="mb-3">
             <label for="firstName" class="form-label">First Name</label>
             <input id="firstName" formControlName="firstName" class="form-control" placeholder="Enter first name">
-            <div *ngIf="contactForm.get('firstName')?.invalid && contactForm.get('firstName')?.touched" class="text-danger">
+            <div *ngIf="contactForm.get('firstName')?.invalid" class="text-danger">
                 First Name is required.
             </div>
         </div>
@@ -13,7 +13,7 @@
         <div class="mb-3">
             <label for="lastName" class="form-label">Last Name</label>
             <input id="lastName" formControlName="lastName" class="form-control" placeholder="Enter last name">
-            <div *ngIf="contactForm.get('lastName')?.invalid && contactForm.get('lastName')?.touched" class="text-danger">
+            <div *ngIf="contactForm.get('lastName')?.invalid" class="text-danger">
                 Last Name is required.
             </div>
         </div>
@@ -21,7 +21,7 @@
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input id="email" formControlName="email" class="form-control" placeholder="Enter email">
-            <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="text-danger">
+            <div *ngIf="contactForm.get('email')?.invalid" class="text-danger">
                 A valid Email is required.
             </div>
         </div>
