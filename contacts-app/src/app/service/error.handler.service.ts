@@ -8,8 +8,13 @@ export class ErrorInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(req).pipe(
             catchError((error: HttpErrorResponse) => {
-                console.error('HTTP Error:', error);
-                return throwError(error);
+              let message = '';
+              if (error.error instanceof ErrorEvent) {
+                message = error.error.message; // Client-side error
+              } else {
+                message = `Error: ${error.status} , Error: ${error.message} , Error Message: ${error.error.error}`; // Server-side error
+              }
+              return throwError(error);
             })
         );
     }
